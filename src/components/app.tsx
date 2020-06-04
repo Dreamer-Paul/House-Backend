@@ -1,10 +1,11 @@
 import { FunctionalComponent, h } from 'preact'
-import { Route, Router, RouterOnChangeArgs } from 'preact-router'
+import { Route, Router, RouterOnChangeArgs, route } from 'preact-router'
 
 import Home from '../routes/home'
 import Profile from '../routes/profile'
 import NotFoundPage from '../routes/notfound'
 import Header from './header'
+import { getAuthCookie } from '../utils/cookie'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 if ((module as any).hot) {
@@ -13,9 +14,13 @@ if ((module as any).hot) {
 }
 
 const App: FunctionalComponent = () => {
-  let currentUrl: string
   const handleRoute = (e: RouterOnChangeArgs) => {
-    currentUrl = e.url
+    if (e.url !== 'login') {
+      const cookie = getAuthCookie()
+      if (!cookie) {
+        route('/login', true)
+      }
+    }
   }
 
   return (

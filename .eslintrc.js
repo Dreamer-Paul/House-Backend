@@ -25,6 +25,15 @@ module.exports = {
     'react/no-unknown-property': ['error', { ignore: ['class'] }],
     'react/no-unescaped-entities': 'off',
     'prettier/prettier': 'warn',
+    'react/react-in-jsx-scope': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn'],
+    'react/prop-types': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'prettier/prettier': 'off',
+    'react/jsx-no-target-blank': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
   },
   settings: {
     react: {

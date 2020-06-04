@@ -27,6 +27,8 @@
     "preact.config.js"
   ],
   "dependencies": {
+    "@types/js-cookie": "^2.2.6",
+    "js-cookie": "^2.2.1",
     "kico-style": "^1.2.0",
     "preact": "^10.3.1",
     "preact-jsx-chai": "^3.0.0",
