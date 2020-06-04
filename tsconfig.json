@@ -6,7 +6,8 @@
     "strict": true,
     "target": "esnext",
     "module": "esnext",
-    "jsx": "preserve",
+    "jsx": "react",
+    "jsxFactory": "h",
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -15,7 +16,6 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "baseUrl": ".",
-    "noImplicitAny": false,
     "typeRoots": [
       "./node_modules/@types"
     ],

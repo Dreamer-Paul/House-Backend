@@ -1,11 +1,13 @@
 import { FunctionalComponent, h } from 'preact'
 import { Route, Router, RouterOnChangeArgs, route } from 'preact-router'
 
-import Home from '../routes/home'
-import Profile from '../routes/profile'
-import NotFoundPage from '../routes/notfound'
-import Header from './header'
-import { getAuthCookie } from '../utils/cookie'
+import Home from './routes/home'
+
+import NotFoundPage from './routes/notfound'
+import Header from './components/header'
+import { getAuthCookie } from './utils/cookie'
+import { useState } from 'preact/hooks'
+import LoginView from './routes/login'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 if ((module as any).hot) {
@@ -14,7 +16,9 @@ if ((module as any).hot) {
 }
 
 const App: FunctionalComponent = () => {
+  const [url, setUrl] = useState('/')
   const handleRoute = (e: RouterOnChangeArgs) => {
+    setUrl(e.url)
     if (e.url !== 'login') {
       const cookie = getAuthCookie()
       if (!cookie) {
@@ -25,11 +29,10 @@ const App: FunctionalComponent = () => {
 
   return (
     <div id="app">
-      <Header />
+      {url !== '/login' && <Header />}
       <Router onChange={handleRoute}>
         <Route path="/" component={Home} />
-        <Route path="/profile/" component={Profile} user="me" />
-        <Route path="/profile/:user" component={Profile} />
+        <LoginView path="/login" />
         <NotFoundPage default />
       </Router>
     </div>

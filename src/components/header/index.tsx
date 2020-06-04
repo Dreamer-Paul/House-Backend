@@ -1,10 +1,10 @@
 import { FunctionalComponent, h } from 'preact'
 import { Link } from 'preact-router/match'
 
-const Header: FunctionalComponent = () => {
+export const Header: FunctionalComponent = () => {
   return (
     <header>
-      <div class="head-toggle" onClick={null}></div>
+      <div class="head-toggle" onClick={undefined}></div>
       <div class="head-breadcrumb">
         <Link href="/">仪表板</Link>
         <Link href="/note">日记</Link>
