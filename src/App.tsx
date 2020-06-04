@@ -1,8 +1,8 @@
-import { hot } from 'react-hot-loader/root'
 import React from 'react'
-import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import LoginView from './views/Login'
+import { hot } from 'react-hot-loader/root'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { Header } from './components/Header'
+import LoginView from './views/Login'
 function App() {
   return (
     <>
@@ -14,8 +14,7 @@ function App() {
           <Route path={'*'}>
             <Header />
             <Router>
-              <Route path="/">1</Route>
-              <Route path="/2">2s</Route>
+              <Route path={'/:id'}>{(e) => e.match?.params.id}</Route>
             </Router>
           </Route>
         </Switch>

@@ -1,15 +1,16 @@
 import React, { FC, useEffect } from 'react'
-import style from './index.module.css'
+import style from './index.module.scss'
 import sample from 'lodash/sample'
 import range from 'lodash/range'
 
 const LoginView: FC = () => {
   useEffect(() => {
     document.body.style.backgroundImage =
-      'url(/assets/bg/bg-' + sample(range(6)) + '.jpg)'
-
+      'url(/bg/bg-' + sample(range(1, 7)) + '.jpg)'
+    document.documentElement.classList.add(style.login)
     return () => {
       document.body.style.backgroundImage = ''
+      document.documentElement.classList.remove(style.login)
     }
   })
   return (
