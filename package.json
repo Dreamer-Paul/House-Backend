@@ -20,7 +20,9 @@
     "*.{js,jsx,ts,tsx}": "eslint --fix"
   },
   "eslintIgnore": [
-    "build/*"
+    "build/*",
+    "jest.config.js",
+    "preact.config.js"
   ],
   "dependencies": {
     "preact": "^10.3.1",
