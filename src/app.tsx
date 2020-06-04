@@ -1,13 +1,16 @@
-import { FunctionalComponent, h } from 'preact'
+import { FunctionalComponent, h, Fragment } from 'preact'
 import { Route, Router, RouterOnChangeArgs, route } from 'preact-router'
 
 import Home from './routes/home'
 
-import NotFoundPage from './routes/notfound'
 import Header from './components/header'
 import { getAuthCookie } from './utils/cookie'
 import { useState } from 'preact/hooks'
 import LoginView from './routes/login'
+
+import './style/index.css'
+import 'kico-style'
+import './style/panel.css'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 if ((module as any).hot) {
@@ -28,14 +31,13 @@ const App: FunctionalComponent = () => {
   }
 
   return (
-    <div id="app">
+    <Fragment>
       {url !== '/login' && <Header />}
       <Router onChange={handleRoute}>
         <Route path="/" component={Home} />
         <LoginView path="/login" />
-        <NotFoundPage default />
       </Router>
-    </div>
+    </Fragment>
   )
 }
 

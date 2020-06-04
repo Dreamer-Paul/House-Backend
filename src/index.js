@@ -7,8 +7,6 @@
  * @Coding with Love
  */
 
-import './style/index.css'
 import App from './app.tsx'
-import 'kico-style'
-import './style/panel.css'
+
 export default App
